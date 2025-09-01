@@ -2,6 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+use App\Http\Controllers\ShopController;
+
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [ShopController::class, 'index']);
+
