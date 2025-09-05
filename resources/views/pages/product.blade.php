@@ -2,6 +2,7 @@
 
 @section('title', 'prodact')
 
+
 @section('content')
 <!DOCTYPE HTML>
 <html>
