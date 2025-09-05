@@ -36,5 +36,14 @@ Route::get('/pages/single', [ProdactController::class, 'single'])->name('single.
 // Route::get('/', [ShopController::class, 'index']);
 
 
-Route::get('/products', [ProductsController::class, 'index'])->name('products');
+Route::get('/shop/products', [ProductsController::class, 'index'])->name('products');
+
 Route::get('/products/{id}', [ProductsController::class, 'show'])->name('products');
+
+Route::get('/products', [ProductsController::class, 'index']);
+
+// عرض الفورم
+Route::get('/shop/products/create', [ProductsController::class, 'create'])->name('create products');
+
+// معالجة الفورم وحفظ المنتج
+Route::post('/products', [ProductsController::class, 'store'])->name('create products');
