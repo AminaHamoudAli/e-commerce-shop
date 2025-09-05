@@ -27,7 +27,6 @@ Route::get('/pages/about', [HomeController::class, 'index']);
 
 Route::get('/pages/prodact', [ProdactController::class, 'index']);
 
-Route::get('/', [contactController::class, 'index'])->name('about');
 
 
 // Route::get('/pages/single', [contactController::class, 'single'])->name('single.blade');
@@ -53,3 +52,8 @@ Route::get('/products/{id}/edit', [ProductsController::class, 'edit'])->name('ed
 Route::put('/products/{id}', [ProductsController::class, 'update'])->name('edit products');
 
 Route::delete('/products/{id}', [ProductsController::class, 'destroy']);
+
+Route::get('/', [contactController::class, 'index'])->name('contact');
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact');
+
