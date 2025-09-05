@@ -3,6 +3,7 @@
 @section('title', 'about us')
 
 @endsection
+
 @section('content')
 
 
