@@ -31,7 +31,6 @@ Route::get('/pages/about', [HomeController::class, 'index']);
 
 Route::get('/pages/prodact', [ProdactController::class, 'index']);
 
-Route::get('/', [contactController::class, 'index'])->name('about');
 
 // Route::get('/pages/single', [contactController::class, 'single'])->name('single.blade');
 Route::get('/pages/single', [ProdactController::class, 'single'])->name('single.blade');
@@ -57,10 +56,15 @@ Route::put('/products/{id}', [ProductsController::class, 'update'])->name('edit 
 
 Route::delete('/products/{id}', [ProductsController::class, 'destroy']);
 
+
+Route::get('/', [contactController::class, 'index'])->name('contact');
+
+Route::post('/contact', [ContactController::class, 'submit'])->name('contact');
+
 // Route::get('/pages/contact', [contactController::class, 'index']);
 
 Route::get('/pages/single', [ProdactController::class, 'single'])->name('single.blade');
 
 Route::get('/', [ShopController::class, 'index']);
- main
+
 
