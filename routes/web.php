@@ -47,3 +47,7 @@ Route::get('/shop/products/create', [ProductsController::class, 'create'])->name
 
 // معالجة الفورم وحفظ المنتج
 Route::post('/products', [ProductsController::class, 'store'])->name('create products');
+
+Route::get('/products/{id}/edit', [ProductsController::class, 'edit'])->name('edit products');
+
+Route::put('/products/{id}', [ProductsController::class, 'update'])->name('edit products');
