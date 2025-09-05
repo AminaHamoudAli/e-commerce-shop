@@ -24,5 +24,17 @@ class ContactController extends Controller
     public function index(){
         return view('.pages.contact' ,['title' => 'contact Us']);
     }
+      public function submit(Request $request)
+    {
+        $request->validate([
+            'name' => 'required|min:3',
+            'email' => 'required|email',
+            'message' => 'required|max:500',
+        ]);
+
+        // هنا ممكن تحفظي الرسالة في قاعدة البيانات أو ترسلي بريد إلكتروني
+
+        return redirect()->back()->with('success', 'تم إرسال رسالتك بنجاح!');
+    }
 }
 
