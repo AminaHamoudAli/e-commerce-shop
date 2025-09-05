@@ -82,5 +82,13 @@ public function update(Request $request, $id)
 
     return redirect('/products')->with('success', 'تم تحديث المنتج بنجاح ✅');
 }
+public function destroy($id)
+{
+    $product = Product::findOrFail($id);
+    $product->delete();
+
+    return redirect('/products')->with('success', 'تم حذف المنتج بنجاح');
+}
+
 
 }

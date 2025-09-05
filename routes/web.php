@@ -51,3 +51,5 @@ Route::post('/products', [ProductsController::class, 'store'])->name('create pro
 Route::get('/products/{id}/edit', [ProductsController::class, 'edit'])->name('edit products');
 
 Route::put('/products/{id}', [ProductsController::class, 'update'])->name('edit products');
+
+Route::delete('/products/{id}', [ProductsController::class, 'destroy']);

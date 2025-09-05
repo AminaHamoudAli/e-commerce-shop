@@ -36,6 +36,15 @@
                             <div style="margin-top:10px;">
                                 <a href="{{ url('/products/'.$product->id.'/edit') }}" class="btn btn-primary btn-sm">تعديل</a>
                             </div>
+                             <form action="{{ url('/products/'.$product->id) }}" method="POST" style="display:inline;">
+       
+                             @csrf
+       
+                             @method('DELETE')
+       
+                             <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('هل أنت متأكد من الحذف؟');">حذف</button>
+  
+                            </form>
                         </div>
                     </div>
                 </div>
