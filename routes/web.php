@@ -21,7 +21,7 @@ use App\Http\Controllers\ServicesController;
 
 
 
-Route::get('/pages/about', [HomeController::class, 'index']);
+Route::get('/pages/about', [HomeController::class, 'index'])->name('about');
 
 
 
@@ -56,4 +56,8 @@ Route::delete('/products/{id}', [ProductsController::class, 'destroy']);
 Route::get('/', [contactController::class, 'index'])->name('contact');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact');
+
+Route::get('/contact', function() {
+    return view('shop.contact');
+});
 

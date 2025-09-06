@@ -27,14 +27,14 @@ class ContactController extends Controller
       public function submit(Request $request)
     {
         $request->validate([
-            'name' => 'required|min:3',
-            'email' => 'required|email',
+            'name' => 'required|string|min:3|max:50',
+            'email' => 'required|email|max:100',
             'message' => 'required|max:500',
         ]);
 
         // هنا ممكن تحفظي الرسالة في قاعدة البيانات أو ترسلي بريد إلكتروني
 
         return redirect()->back()->with('success', 'تم إرسال رسالتك بنجاح!');
+        // return redirect()->back()->with('success', 'Your message has been sent successfully!');
     }
 }
-
