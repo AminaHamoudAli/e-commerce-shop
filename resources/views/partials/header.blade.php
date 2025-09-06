@@ -52,8 +52,8 @@
 				<div class="col-md-8 col-md-offset-2 text-center">
 					<div class="display-t">
 						<div class="display-tc animate-box" data-animate-effect="fadeIn">
-							<!-- <h1>About Us</h1> -->
-                             <h1>{{ $title }}</h1>
+						{{-- <h1>About Us</h1> --}}
+                             {{-- <h1>{{ $title }}</h1> --}}
 
                              <h1>{{ ucfirst(Route::currentRouteName()) }}</h1>
 

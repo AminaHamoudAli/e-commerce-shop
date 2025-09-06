@@ -30,20 +30,31 @@
                     </div>
                 @endif
 
+                <!-- عرض الأخطاء -->
+                @if($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
                 <form action="{{ url('/contact') }}" method="POST">
                     @csrf
                     <div class="row form-group">
                         <div class="col-md-6">
-                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" value="{{ old('name') }}" required>
                         </div>
                         <div class="col-md-6">
-                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" value="{{ old('email') }}" required>
                         </div>
                     </div>
 
                     <div class="row form-group">
                         <div class="col-md-12">
-                            <textarea name="message" cols="30" rows="10" class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea name="message" cols="30" rows="10" class="form-control" placeholder="Your Message" required>{{ old('message') }}</textarea>
                         </div>
                     </div>
 

@@ -23,7 +23,7 @@ Route::get('/pages/about', [HomeController::class, 'index']);
  feature/template-integration
 // Route::get('/', [ShopController::class, 'index']);
 
-Route::get('/pages/about', [HomeController::class, 'index']);
+Route::get('/pages/about', [HomeController::class, 'index'])->name('about');
 
 
 // Route::get('/pages/services', [ServicesController::class, 'index']);
@@ -61,10 +61,16 @@ Route::get('/', [contactController::class, 'index'])->name('contact');
 
 Route::post('/contact', [ContactController::class, 'submit'])->name('contact');
 
+
+Route::get('/contact', function() {
+    return view('shop.contact');
+});
+
 // Route::get('/pages/contact', [contactController::class, 'index']);
 
 Route::get('/pages/single', [ProdactController::class, 'single'])->name('single.blade');
 
 Route::get('/', [ShopController::class, 'index']);
+
 
 
