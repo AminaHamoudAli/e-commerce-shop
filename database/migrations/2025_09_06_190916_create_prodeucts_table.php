@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('prodeucts', function (Blueprint $table) {
+            
             $table->id();
             $table->string('name');
             $table->text('description');
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->unsignedBigInteger('category_id');
             $table->timestamps();
-            
+
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
         });
     }
