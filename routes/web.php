@@ -3,24 +3,21 @@
 // use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProdactController;
-use App\Http\Controllers\ShopController;
+// use App\Http\Controllers\ShopController;
 use App\Http\Controllers\ProductsController;
 // use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\ProdactsController;
 use App\Http\Controllers\ServicesController;
-
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ServicesController;
-use App\Http\Controllers\contactController;
+use App\Models\Product;
+use App\Models\Category;
 
 // Route::get('/', function () {
 //     return view('welcome');
 // });
 
-Route::get('/pages/about', [HomeController::class, 'index']);
- feature/template-integration
+
 // Route::get('/', [ShopController::class, 'index']);
 
 Route::get('/pages/about', [HomeController::class, 'index'])->name('about');
@@ -70,7 +67,22 @@ Route::get('/contact', function() {
 
 Route::get('/pages/single', [ProdactController::class, 'single'])->name('single.blade');
 
-Route::get('/', [ShopController::class, 'index']);
+// Route::get('/', [ShopController::class, 'index']);
 
 
 
+Route::prefix('admin')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('admin.dashboard');
+    });
+
+    Route::get('/products', function () {
+        $products = Product::with('category')->get();
+        return view('admin.products', compact('products'));
+    });
+
+    Route::get('/categories', function () {
+        $categories = Category::with('products')->get();
+        return view('admin.categories', compact('categories'));
+    });
+});
