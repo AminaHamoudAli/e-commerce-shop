@@ -9,7 +9,9 @@
 						<li class="has-dropdown">
 							<a href="product.html">Shop</a>
 							<ul class="dropdown">
+							<li><a href="{{ url('admin/products') }}">Manage Products</a></li>
 								<li><a href="single.html">Single Shop</a></li>
+						
 							</ul>
 						</li>
 						
